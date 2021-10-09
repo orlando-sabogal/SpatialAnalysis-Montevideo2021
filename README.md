@@ -4,7 +4,7 @@
 ## Instructors
 
 - María Eugenia Riaño
-- Orlando Sabogal-Cardona - The Bartlett Development Planning Unit DPU - University College London
+- Orlando Sabogal-Cardona - The Bartlett Development Planning Unit DPU, University College London
 
 For a previous version of the course please visit [our 2019 repository](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/)
 
@@ -14,9 +14,9 @@ This is a short course about using geographic data to generate maps and insights
 
 Nevertheless, most of the content is going to be delivered through three tutorials:
 
-- [Warm Up - sf](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/WarmUp.nb.html)
-- [tmap Tutorial](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/tmap-tutorial.nb.html)
-- [Interactive maps](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/InteractiveMaps.nb.html)
+- [Warm Up - sf](https://orlando-sabogal.github.io/SpatialAnalysis-Montevideo2021/Notebooks/WarmUp.nb.html)
+- [tmap Tutorial](https://orlando-sabogal.github.io/SpatialAnalysis-Montevideo2021/Notebooks/tmap-tutorial.nb.html)
+- [Interactive maps](https://orlando-sabogal.github.io/SpatialAnalysis-Montevideo2021/Notebooks/InteractiveMaps.nb.html)
 
 I encourage you to go through the Notebooks and digest the code. Eventually, you can forget the detail of every library or how a specific function works; but if you understand the logic and develop the intuition, is easier to remember and to solve new problems.
 
