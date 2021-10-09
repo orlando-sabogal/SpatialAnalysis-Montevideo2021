@@ -4,7 +4,7 @@
 ## Instructors
 
 - María Eugenia Riaño
-- Orlando Sabogal-Cardona
+- Orlando Sabogal-Cardona - The Bartlett Development Planning Unit DPU - University College London
 
 For a previous version of the course please visit [our 2019 repository](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/)
 

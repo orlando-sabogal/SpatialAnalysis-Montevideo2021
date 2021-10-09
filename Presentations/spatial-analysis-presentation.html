@@ -1,0 +1,525 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>Spatial Analysis</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Orlando Sabogal-Cardona and María Eugenia Riaño" />
+    <script src="libs/header-attrs-2.10/header-attrs.js"></script>
+    <link href="libs/remark-css-0.0.1/default.css" rel="stylesheet" />
+    <link rel="stylesheet" href="SomeFonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+
+class: inverse, bottom, right
+
+&lt;h1 align="center"&gt; Spatial Analysis Using R &lt;/h1&gt;
+
+&lt;br&gt; &lt;br&gt; &lt;br&gt; &lt;br&gt;
+
+&lt;h3&gt; Montevideo - October 2021 &lt;/h3&gt;
+
+&lt;hr width = 300, align = "right"&gt;
+
+&lt;p&gt; María Eugenia Riaños &lt;p&gt;
+
+&lt;p&gt; 
+
+Orlando Sabogal-Cardona
+  -
+  &lt;a href="https://twitter.com/AntonioSabogal"&gt;@AntonioSabogal&lt;/a&gt; 
+
+&lt;p&gt;
+
+???
+This is the first silde
+Introduce myself
+
+
+---
+
+#What is special about spatial data?
+
+&lt;br/&gt;
+--
+The title of this slide was taken from [An old but good article](https://escholarship.org/uc/item/3ph5k0d4) by Luc Anselin
+&lt;br/&gt;
+&lt;br/&gt;
+
+Geographic data is stored, processed, and analyzed in a different way. It is not treated as conventional data (e.g., .csv data)
+&lt;br/&gt;
+&lt;br/&gt;
+--
+Specific "software infrastructure" is needed
+- There used to be a boom of Geographic information Systems GIS
+- Now people is using R or Python
+
+--
+- [Geographic Data Science article](https://onlinelibrary.wiley.com/doi/full/10.1111/gean.12194) by Singleton and Arriba-bel
+
+---
+#Satistical analysis
+
+&lt;br/&gt;
+--
+- Main feature of geographic data:
+- Tobler's (1979) first law of geography. Have you heard of the second law?
+- What *near* and *distant* mean in a particular context?
+
+&lt;br/&gt;
+--
+- The issue of correlation
+- What about independence and correlation among observations?
+- Assumption in linear regression
+- Spatial autocorrelation
+- Moran's I, spatially weighted matrix, kernel functions, semivariogras
+
+&lt;br/&gt;
+--
+- Data is **NOT ENOUGH** to extract knowledge. 
+
+---
+#A standard workflow
+
+&lt;br/&gt;
+--
+- Data cleaning (a.k.a data processing, data data wrangling, data munging, data struggle, data suffering)
+
+
+&lt;br/&gt;
+--
+- Exploratory data analysis
+
+&lt;br/&gt;
+--
+- Visualization
+
+&lt;br/&gt;
+--
+- Statistical analysis
+
+&lt;br/&gt;
+--
+- Iterate
+
+&lt;br/&gt;
+--
+- See next slide (Hadley Wickham and Garrett Grolemund)
+
+---
+class: inverse, center, middle
+background-image: url(data-science.png)
+background-size: contain
+
+
+---
+class: inverse, center, middle
+#Visualization
+
+
+---
+class: inverse, center, middle
+background-image: url(Minard.png)
+background-size: contain
+
+???
+Source:
+
+---
+class: inverse, center, middle
+background-image: url(bike_ggplot_james-cheshire-768x508.png)
+background-size: contain
+
+???
+Source: https://www.r-graph-gallery.com/270-james-cheshire-dataart/
+see: http://oobrien.com/wp-content/uploads/2012/09/mappinglondon_soc.pdf
+---
+class: inverse, center, middle
+background-image: url(journey_to_work_web_james_cheshire-768x898.gif)
+background-size: contain
+
+
+???
+Source: https://www.r-graph-gallery.com/270-james-cheshire-dataart/
+
+---
+class: inverse, center, middle
+background-image: url(Attraction_All.jpeg)
+background-size: contain
+
+
+???
+Source: https://www.r-graph-gallery.com/270-james-cheshire-dataart/
+
+---
+#Statistical models
+
+&lt;br/&gt;
+
+--
+- Areal data: Observed variable on zones follows a random process. Spatial Autucorrelation. Modifable areal unit problem MAUP.
+
+
+--
+- Point data:Location as a random process (crimes). Differnce between spatial distribution and completely random spatial distribution. Usually associated with hotspots and Kernel Denstiy Estimation KDE.
+
+
+--
+- Continous data: *Geostatistics.* The variables is continously distributed across all the territory but there are limited discrete-fixed observations. Semivariogram, interpolation, Kriging.
+
+
+---
+#Programming 
+
+- Programming? Writting code? or just *scripting*?
+
+- Always use google. Even the most experimented programmers are all day in stackoverflow or github figuring out how to make things work. 
+
+- I see programming as a superpower. 
+
+- It can certainly foster your work. 
+
+- Reproducible research, government accountability, citizen science. 
+
+- **Empowerment**
+
+- R is a (powerful) tool. Be aware of other tools: *python*, *javascript*, *SQL.*
+
+
+
+---
+#Content 
+
+This course is about using data with geographic properties. 
+Hopefully, **we will code a lot.**
+
+.pull-left[
+
+###You will learn
+
+- Some general concepts. 
+- Key Libraries
+- To make reproducible and reusable maps
+- That *the sky is the limit*
+- Hopefully, **to learn R**.
+
+]
+
+.pull-right[
+
+###You will not learn
+
+- Geographic Statistics and sound methods.
+- *raster* data.
+- To write efficient R code.&lt;sup&gt;*&lt;/sup&gt;
+- To handle big data.
+- To solve every possible problem. 
+
+]
+
+.footnote[[*] This is up to you.]
+
+---
+#libraries
+
+--
+There are many libraries. In this course we are going to try to cover the basics apsects of: &lt;br&gt; &lt;/br&gt;
+
+--
+sf  &lt;br&gt; &lt;/br&gt;
+--
+sf + *The Tidyverse* &lt;br&gt; &lt;/br&gt;
+--
+sf + *The Tidyverse* + notebooks &lt;br&gt; &lt;/br&gt;
+--
+tmap &lt;br&gt; &lt;/br&gt;
+--
+leaflet &lt;br&gt; &lt;/br&gt;
+
+
+---
+class: inverse, center, middle
+
+# sf: simple features
+
+---
+#Spatial Operations
+
+--
+- Read and Write Data
+
+
+```r
+st_read()
+st_write()
+```
+
+--
+- It works as a tibble with and additional *geometry* variable. You can use almost the whole **Tidyverse**
+
+
+```r
+SF_Object %&gt;% ...functions()...
+
+filter()
+arrange()
+group_by()
+summarise()
+...
+```
+
+
+---
+###Some Useful Functions
+
+
+```r
+plot(st_geometry())
+st_join()
+st_union()
+st_difference()
+st_buffer()
+...
+```
+
+--
+###CRS: Coordinate Reference System
+- *geographic* (distance is not in meters)
+- *projected* (distance is in meters) 
+
+--
+
+```r
+st_crs()
+st_is_longlat()
+
+st_set_crs()
+st_transform()
+```
+--
+Go to the [sf Tutorial!](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/WarmUp.nb.html)
+
+---
+class: inverse, center, middle
+
+#tmap
+##(I love it)
+
+
+---
+#A grammar for plots
+
+**tmap** works in a similar way to **ggplot2**. &lt;br/&gt;
+Is simple to use. Think about having an empty canvas where you add elements by using **+ tm_SomeFuncion.**
+
+
+```r
+tm_shape() + tm_polygons() +
+  tm_shape() + tm_dots() + 
+  tm_compass() + tm_scale_bar()
+```
+
+###Some capabilities:
+- Auxiliar maps (insets)
+- Interactiviy, connection to Leaflet
+- Full customization of legends
+- Faceted maps
+
+--
+
+Go to the [tmap Tutorial!](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/tmap-tutorial.nb.html)
+
+---
+class: inverse, center, middle
+
+#leaflet
+
+---
+#Leaflet and Leaflet for R
+
+Originallyl, Leaflet is a javascript [library](https://leafletjs.com/) "...designed with simplicity, performance and usability in mind." 
+
+Fortunately, in the [html widgets for R](http://www.htmlwidgets.org/) there is a [Leaflet for R](https://rstudio.github.io/leaflet/) that let you use most of the capabilities of Leaflet with your regular R code. To create maps with leaflet you can use *data.frame* objects, *sf* objects, *raster* objects and *json* files. 
+
+Leaflet for R is methodologically easy to use and you can get farther by exploring the arguments of the functions. A nice feature of Leaflet is that is integrated with shiny. 
+
+
+```r
+leaflet() %&gt;% addProviderTiles() %&gt;% 
+  addPolygons() %&gt;% 
+  addCircles() %&gt;% 
+  ...
+```
+
+---
+#Some examples
+
+- [The propensity to cycling tool PCT](http://www.pct.bike/m/?r=avon)
+- [PCT website](https://www.pct.bike/)
+- [PCT Github repositories!](https://github.com/npct) 
+
+- [Access to opportunities](https://www.ipea.gov.br/acessooportunidades/en/sobre/#:~:text=The%20Access%20to%20Opportunities%20Project,to%20opportunities%20in%20Brazilian%20cities.)
+- [NSUL project - UK](https://ucl-dpu.shinyapps.io/nsul/)
+
+- [Reimagining NYC Neighborhoods with NewerHoods](https://data-clinic.shinyapps.io/newerhoods/) [Repo](https://github.com/tsdataclinic/newerhoods) 
+- [Isolines](https://byollin.shinyapps.io/Isolines/). [Repo](https://github.com/byollin/Isolines)
+- [Water Quality](https://udwq.shinyapps.io/lakeprofiledashboard/)
+- [SpatialEpiApp](https://paulamoraga.shinyapps.io/spatialepiapp/)
+- Is actually an [R package](https://paula-moraga.github.io/blog/2018/01/04/2018-01-04_spatialepiapp/) too. 
+
+&lt;br/&gt;
+--
+Go to the [leaflet Tutorial!](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/InteractiveMaps.nb.html)
+
+---
+class: inverse, center, middle
+
+#The sky is the limit!
+
+---
+
+&lt;br/&gt;
+
+###There are many **free** and **open** resources that you can use:
+
+- [Geocomputation with R](https://geocompr.robinlovelace.net/) 
+- [Geographic Information Systems and Science](https://andrewmaclachlan.github.io/CASA0005repo/index.html)
+- [Crime mapping in R](https://maczokni.github.io/crime_mapping_textbook/)
+- [Spatial data science with R and "terra"](https://rspatial.org/terra/index.html#)
+
+
+---
+class: center, middle
+
+# Thanks!
+
+Slides created via the R package [**xaringan**](https://github.com/yihui/xaringan).
+
+The chakra comes from [remark.js](https://remarkjs.com), [**knitr**](http://yihui.name/knitr), and [R Markdown](https://rmarkdown.rstudio.com).
+
+
+
+
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "github",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
