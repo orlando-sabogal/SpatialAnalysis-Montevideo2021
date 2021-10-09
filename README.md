@@ -6,6 +6,8 @@
 - María Eugenia Riaño
 - Orlando Sabogal-Cardona
 
+For a previous version of the course please visit [our 2019 repository](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/)
+
 This is a short course about using geographic data to generate maps and insights. We will see how to use the  **sf** library to load and process data by performing spatial operations. For map-making we are going to introduce the **tmap** library. Also, we will see how to create interactive maps with **leaflet.** <br/>
 
 [Here](Presentations/spatial-analysis-presentation.html) you can find the slides to the introduction. <br/>
