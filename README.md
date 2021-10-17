@@ -3,8 +3,10 @@
 
 ## Instructors
 
-- María Eugenia Riaño
 - Orlando Sabogal-Cardona - The Bartlett Development Planning Unit DPU, University College London
+- María Eugenia Riaño
+
+You can download all content (including tutorials with the source code) from [here](https://github.com/orlando-sabogal/SpatialAnalysis-Montevideo2021)
 
 For a previous version of the course please visit [our 2019 repository](https://orlando-sabogal.github.io/SpatialAnalysis-MontevideoWorkshop2019/)
 
@@ -18,10 +20,13 @@ Nevertheless, most of the content is going to be delivered through three tutoria
 - [tmap Tutorial](https://orlando-sabogal.github.io/SpatialAnalysis-Montevideo2021/Notebooks/tmap-tutorial.nb.html)
 - [Interactive maps](https://orlando-sabogal.github.io/SpatialAnalysis-Montevideo2021/Notebooks/InteractiveMaps.nb.html)
 
-I encourage you to go through the Notebooks and digest the code. Eventually, you can forget the detail of every library or how a specific function works; but if you understand the logic and develop the intuition, is easier to remember and to solve new problems.
+I encourage you to go through the Notebooks and digest the code. Eventually, you can forget the details of every library or how a specific function works; but if you understand the logic and develop the intuition, it is easier to remember and to solve new problems.
 
 Please let me know if you find any mistake or have a suggestion.
 
 ### Schedule
 
-![](logo.png)
+- 18 October from 10 am to 12 am (Montevideo time)
+- 19 October from 10 am to 12 am (Montevideo time)
+
+![](logo.jpg)
