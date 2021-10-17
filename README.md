@@ -1,10 +1,14 @@
 
-# Montevideo (Uruguay) - October - 2021.
+# Introduction to spatial analysis with R
+
+*Montevideo (Uruguay) - October - 2021.*
+
+This is a short course prepared for the **XIV Congreso Latinoamericano de sociedades de estadística CLATSE**
 
 ## Instructors
 
 - Orlando Sabogal-Cardona - The Bartlett Development Planning Unit DPU, University College London
-- María Eugenia Riaño
+- María Eugenia Riaño - Profesora Adjunta - Departamento de Métodos Cuantitativos, FCEA - UdelaR
 
 You can download all content (including tutorials with the source code) from [here](https://github.com/orlando-sabogal/SpatialAnalysis-Montevideo2021)
 
