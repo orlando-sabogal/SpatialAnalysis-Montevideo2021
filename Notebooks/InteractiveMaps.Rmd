@@ -74,7 +74,6 @@ In the previous map you can zoom in and zoom out all around the world. You can s
 leaflet() %>% 
   addProviderTiles(providers$Esri.NatGeoWorldMap) %>%
   setView(lng = -56.199735, lat = -34.906543, zoom = 8)
-
 ```
 
 ```{r}
@@ -189,12 +188,17 @@ leaflet() %>%
 # Using our shapes
 
 ```{r}
-Uruguay <- st_read("ine_depto.shp")
+getwd()
+```
+
+
+```{r}
+Uruguay <- st_read("Montevideo_Data/Vectoriales_2011/ine_depto.shp")
+#ine_depto.shp
 ```
 
 ```{r}
-setwd("~/Dropbox/Teaching/SpatialAnalysis-MontevideoWorkshop2019/Notebooks/Montevideo_Data/Accidentes2006-2010")
-Accidents <- st_read("accidentes2006-2010.shp")
+Accidents <- st_read("Montevideo_Data/Accidentes2006-2010/accidentes2006-2010.shp")
 ```
 
 ```{r}
@@ -319,3 +323,4 @@ leaflet(Accidents2009) %>%
 
 
 
+ 

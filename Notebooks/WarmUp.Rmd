@@ -23,13 +23,8 @@ library(tidyverse)
 ```{r}
 setwd("C:/Users/Orlan/Dropbox/MyGitRepositories/SpatialAnalysis-Montevideo2021/Notebooks")
 #The path to the working directory should change according to where you allocated the repository in your computer. 
-
-#setwd('..')
 ```
 
-```{r}
-getwd()
-```
 
 <br/>
 <hr/>
@@ -152,7 +147,6 @@ Esquinas <- Accidents %>%
   st_set_geometry(NULL) %>% 
   group_by(ESQUINA) %>% 
   summarise(Total = n()) %>% 
-  
   arrange(desc(Total))
 ```
 
@@ -206,13 +200,13 @@ plot(st_geometry(Montevideo))
 
 ```{r}
 st_crs(Montevideo)
-st_crs(Uruguay)
+st_crs(Accidents)
 
 st_crs(Montevideo) == st_crs(Accidents)
 ```
 
 ```{r}
-Montevideo <- st_set_crs(Montevideo,32721)
+Montevideo <- st_set_crs(Montevideo, 32721)
 st_crs(Montevideo) == st_crs(Accidents)
 ```
 
@@ -250,7 +244,6 @@ BiggesStates
 A simple operation might be to know how many point of an object fall in an area. Let's use the *stations* of the railway system in Urugay and see how many stations are in each state. This kind of procedures are called spatial operations. 
 
 ```{r}
-
 Stations <- st_read("Montevideo_Data/afe_estaciones/afe_estaciones.shp")
 st_crs(Stations)
 ```
@@ -416,7 +409,6 @@ plot(st_geometry(Montevideo), col = "deepskyblue1")
 plot(st_geometry(Buffers), add = TRUE)
 ```
 
-
 ```{r}
 Points <- Accidents %>% slice(1,2,3,123,321) %>% transform(5383)
 BufferPoints <- Points %>% st_buffer(1500) %>% st_transform(32721)
@@ -461,7 +453,6 @@ plot(st_geometry(Montevideo), col = "deepskyblue1")
 plot(st_geometry(MyIntersection), col = "darkgreen", border = "darkgreen",add = TRUE)
 ```
 
-
 ```{r}
 plot(st_geometry(Montevideo), col = "deepskyblue1")
 plot(st_geometry(Polygon1), add = TRUE)
@@ -488,7 +479,6 @@ plot(st_geometry(Polygon1), add = TRUE)
 plot(st_geometry(Polygon2), add = TRUE)
 plot(st_geometry(MyDifference1), col = "darkgreen", border = "darkgreen",add = TRUE)
 ```
-
 
 ```{r}
 MyDifference2 <- st_difference(Polygon2, Polygon1)
@@ -517,8 +507,6 @@ plot(st_geometry(Polygon1), add = TRUE)
 plot(st_geometry(Polygon2), add = TRUE)
 plot(st_geometry(MyTwoDiffereces), col = "darkgreen", border = "darkgreen",add = TRUE)
 ```
-
-
 ## Areas
 
 ```{r}
