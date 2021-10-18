@@ -15,7 +15,7 @@ library(tidyverse)
 library(sf)
 library(leaflet)
 ```
-
+ 
 Leaflet is a javascript [library](https://leafletjs.com/). If yoy know your way around **js** it goes something like this: 
 
 ```{r,eval=FALSE}
